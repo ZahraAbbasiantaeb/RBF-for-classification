@@ -101,7 +101,7 @@ with tf.Session() as sess:
 
     sess.run(init)
 
-    writer = tf.summary.FileWriter("/Users/zahra_abasiyan/PycharmProjects/Project/deep_learning_course/"+path+"/graph")
+    writer = tf.summary.FileWriter(path+"/graph")
 
     writer.add_graph(graph=tf.get_default_graph())
 
@@ -127,11 +127,9 @@ with tf.Session() as sess:
 
         step += 1
 
-    save_path = saver.save(sess, "/Users/zahra_abasiyan/PycharmProjects/Project/deep_learning_course/"+path+"/model.ckpt")
+    save_path = saver.save(sess, path+"/model.ckpt")
 
     print("Model saved in path: %s" % save_path)
-
-    # saver.restore(sess, tf.train.latest_checkpoint("/Users/zahra_abasiyan/PycharmProjects/Project/deep_learning_course/rbf_500/model.ckpt"))
 
     plot3D(x_train, pred_train)
 
